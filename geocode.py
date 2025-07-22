@@ -111,7 +111,7 @@ def geo_reverse(lat: float, lon: float) -> str:
         'limit': 1,
     }
     response = requests.get(url=url, params=params)
-    print(response.text)
+    # print(response.text)
     """
     [
       {
@@ -133,17 +133,18 @@ def geo_reverse(lat: float, lon: float) -> str:
 
 if __name__ == '__main__':
     # FIND LOCATION BY CITY NAME
-    # lat, lon, code = geo_location("Perth")
-    # print(lat, lon, code)
-    # lat, lon, code = geo_location("Perth", "gb")
-    # print(lat, lon, code)
+    lat, lon, code = geo_location("Perth")
+    print(lat, lon, code)
+    lat, lon, code = geo_location("Perth", "gb")
+    print(lat, lon, code)
 
     # FIND LOCATION BY ZIP / POSTCODE
-    # lat, lon, code = geo_zip("6239", "au")
-    # print(lat, lon, code)
-    # lat, lon, code = geo_zip("NN10", "gb")
-    # print(lat, lon, code)
+    lat, lon, code = geo_zip("6239", "au")
+    print(lat, lon, code)
+    lat, lon, code = geo_zip("NN10", "gb")
+    print(lat, lon, code)
 
+    # FIND LOCATION NAME FROM COORDINATES
     city_name = geo_reverse(51.5128, -0.0918)
     print(city_name)
     city_name = geo_reverse(-33.5622, 115.8524)
